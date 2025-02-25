@@ -1,8 +1,8 @@
-import FeatureHighlight from "./components/FeatureHighlight";
-import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import FeatureHighlight from "./components/FeatureHighlight";
 import MediaContentBlock from "./components/MediaContentBlock";
 import ProductShowcase from "./components/ProductShowcase";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (

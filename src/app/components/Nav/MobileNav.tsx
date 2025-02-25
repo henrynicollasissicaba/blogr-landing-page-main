@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import CloseMenuButton from "./CloseMenuButton"
-import OpenMenuButton from "./OpenMenuButton"
-import { menu } from "../data/utils"
-import Image from "next/image"
+
+import { CloseMenuButton, OpenMenuButton } from "../Button/MenuButtons"
+import { menu } from "@/app/data/utils"
 import Link from "next/link"
+import Arrow from "../ui/Arrow"
+import Button from "../Button/Button"
 
 export default function MobileNav(){
     const [openMenu, setOpenMenu] = useState(false)
@@ -47,11 +48,8 @@ export default function MobileNav(){
                                         onClick={() => handleOpenSubmenu(item.id)}
                                     >
                                         {item.link}
-                                        <Image 
-                                            src="/icon-arrow-dark.svg"
-                                            alt="icon arrow"
-                                            width={10}
-                                            height={10}
+                                        <Arrow 
+                                            type="dark" 
                                             className={`${openSubmenu === item.id ? "rotate-180" : "rotate-0"} 
                                             transform transition-all`}
                                         />
@@ -78,18 +76,9 @@ export default function MobileNav(){
                                 </div>
                             ))}
                             <div className="w-full h-[1px] bg-grayish-blue"></div>
-                            <div className="flex flex-col gap-4 font-bold">
-                                <button 
-                                    className="cursor-pointer text-dark-grayish-blue px-6 py-2"
-                                >
-                                    Login
-                                </button>
-                                <button 
-                                    className="bg-linear-to-r from-light-red-300 to-light-red-400 px-8 py-2
-                                    text-white rounded-4xl"
-                                >
-                                    Sign Up
-                                </button>
+                            <div className="flex flex-col gap-4 pb-2">
+                                <Button variant="clear">Login</Button>
+                                <Button variant="gradient">Sign Up</Button>
                             </div>
                         </div>
                     </nav>

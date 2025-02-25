@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react";
-import { menu } from "../data/utils";
-import Image from "next/image";
+import { menu } from "@/app/data/utils";
 import Link from "next/link";
+import Arrow from "../ui/Arrow";
 
 export default function DesktopNav(){
     const [openSubmenu, setOpenSubmenu] = useState<null | number>(null)
@@ -23,16 +23,13 @@ export default function DesktopNav(){
                     <div key={item.id} className="w-full flex flex-col justify-center items-center relative">
                         <div>
                             <button 
-                                className={`flex items-center gap-1 cursor-pointer p-1
-                                ${openSubmenu === item.id ? "text-white" : "text-zinc-100"} font-medium`}
+                                className={`flex items-center gap-1 cursor-pointer p-1 hover:text-white transition-colors
+                                ${openSubmenu === item.id ? "text-white" : "text-zinc-200"} font-medium`}
                                 onClick={() => handleOpenSubmenu(item.id)}
                             >
                                 {item.link}
-                                <Image 
-                                    src="/icon-arrow-light.svg"
-                                    alt="icon arrow"
-                                    width={10}
-                                    height={10}
+                                <Arrow 
+                                    type="light" 
                                     className={`${openSubmenu === item.id ? "rotate-180" : "rotate-0"} 
                                     transform transition-all`}
                                 />
